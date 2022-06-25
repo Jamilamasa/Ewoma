@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css">
+    <title>Form Styling</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        /* 
+        -May want to add "border-box for "box-sizing so padding does not affect width
+        -Reset margin and padding 
+       */
+      }
+
+      body {
+        background-color: #c0521f;
+        font-family: 'Raleway';
+        line-height: 1.8;
+        /* 
+          -Background color is #344a72
+        */
+      }
+
+      a {
+        text-decoration: none;
+        /* 
+        Underlined links are ugly :)
+       */
+      }
+
+      #container {
+        
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+      
+        /* 
+        -Remember, margin: auto on left and right will center a block element 
+        -I would also set a "max-width" for responsiveness
+        -May want to add some padding
+        */
+      }
+
+      .form-wrap {
+        background-color: rgb(182, 31, 31);
+        padding: 15px 25px ;
+
+        /* 
+          This is the white area around the form and heading, etc
+        */
+      }
+
+      .form-wrap h1, .form-wrap p { text-align: center;
+        /* 
+          May want to center these
+        */
+      }
+
+      .form-wrap .form-group {
+        margin-top: 15px;
+        padding: 10px;
+        /* 
+          Each label, input is wrapped in .form-group
+        */
+      }
+
+      .form-wrap .form-group label {
+        display: block;
+        color: rgb(0, 0, 0);
+        /* 
+          Label should be turned into a block element
+        */
+      }
+
+      .form-wrap .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: #ddd 1px solid;
+        border-radius: 5px;
+        /* 
+          Inputs should reach accross the .form-wrap 100% and have some padding
+        */
+      }
+
+      .form-wrap button {
+        color: black;
+        width: 100%;
+        display: block;
+        background-color: #c95b1b;
+        padding: 10px;
+        /* 
+          Button should wrap accross 100% and display as block
+          Background color for button is #49c1a2
+        */
+      }
+
+      .form-wrap button:hover {
+        background-color: #c26323;
+        /* 
+          Hover background color for button is #37a08e
+        */
+      }
+
+      .form-wrap .bottom-text {
+        /* 
+          Bottom text is smaller
+        */
+      }
+
+      footer {
+        text-align: center;
+        /* 
+        Should be centered
+       */
+      }
+
+      footer a {
+        color: #49c1a2;
+        /* 
+          Footer link color is #49c1a2
+        */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <nav id="nav-bar">
+            <div class="container">
+                <div class="nav-flex">
+                   
+                    </div>
+                    <ul>
+                        
+                    </ul>
+                </div>
+        </div>
+        </nav>
+    </header>
+    <div id="container">
+      <div class="form-wrap">
+        <h1>Currency Converter</h1>
+        <p>Know your exchange rate now</p>
+        <form>
+          <div class="form-group">
+            <label for="first-name">Dollar</label>
+            <input type="text" name="firstName" id="first-name" placeholder="Enter Amount">
+          </div>
+          <div class="form-group">
+            <label for="last-name">Naira</label>
+            <input type="text" name="lastName" id="last-name" placeholder="Enter Amount" disabled/>
+          </div>
+          <button type="submit" class="btn">Convert</button>
+        </form>
+       <p>Calculation of $1 to #600</p>
+      </div>
+    </div>
+    <script>
+        const naira = document.querySelector('#first-name');
+        const dollar = document.querySelector('#last-name');
+        const btn = document.querySelector('.btn');
+        btn.addEventListener('click', calculate);
+
+        function calculate(e) {
+            dollar.value = parseFloat(naira.value) * 600;
+            e.preventDefault();
+        }
+
+    </script>
+  </body>
+</html>
